@@ -27,7 +27,7 @@ from pytube.helpers import safe_filename
 from userbot import HELPER, LOGGER, LOGGER_GROUP, YOUTUBE_API_KEY, bot
 from userbot.events import register
 
-LANG = "en"
+LANG = "pt"
 
 
 @register(outgoing=True, pattern="^.img (.*)")
