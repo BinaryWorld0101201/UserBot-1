@@ -125,7 +125,7 @@ async def kang(args):
                     await bot.send_read_acknowledge(conv.chat_id)
 
             await args.edit(
-                f"Sticker adicionado! Seu pack pode ser encontrado [aqui](t.me/addstickers/{packname})",
+                f"Sticker added! Your kang pack can be found [here](t.me/addstickers/{packname})",
                 parse_mode='md'
             )
 
