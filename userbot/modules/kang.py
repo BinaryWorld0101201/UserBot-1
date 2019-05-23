@@ -49,7 +49,7 @@ async def kang(args):
             image = await resize_photo(photo)
             splat = args.text.split()
             if not emojibypass:
-                emoji = "🤔"
+                emoji = "🧐"
             pack = "1"
             if len(splat) == 3:
                 pack = splat[2]     #User sent both
@@ -62,7 +62,7 @@ async def kang(args):
                     #User sent just custom emote, wants to push to default pack
                     emoji = splat[1]
 
-            packname = f"a{user.id}_by_{user.username}_{pack}"
+            packname = f"{user.username}_kangpack"
             response = urllib.request.urlopen(
                 urllib.request.Request(f'http://t.me/addstickers/{packname}')
             )
@@ -98,7 +98,7 @@ async def kang(args):
                     await conv.get_response()
                     # Ensure user doesn't get spamming notifications
                     await bot.send_read_acknowledge(conv.chat_id)
-                    await conv.send_message(f"@{user.username}'s userbot pack {pack}")
+                    await conv.send_message(f"{user.username}'s kang pack")
                     await conv.get_response()
                     # Ensure user doesn't get spamming notifications
                     await bot.send_read_acknowledge(conv.chat_id)
@@ -125,7 +125,7 @@ async def kang(args):
                     await bot.send_read_acknowledge(conv.chat_id)
 
             await args.edit(
-                f"Sticker added! Your pack can be found [here](t.me/addstickers/{packname})",
+                f"Sticker adicionado! Seu pack pode ser encontrado [aqui](t.me/addstickers/{packname})",
                 parse_mode='md'
             )
 
@@ -160,6 +160,6 @@ HELPER.update({
 \n\n.kang [emoji('s)]\
 \nUsage: Works just like .kang but uses the emoji('s) you picked.\
 \n\n.kang [number]\
-\nUsage: Kang's the sticker/image to the specified pack but uses 🤔 as emoji.\
+\nUsage: Kang's the sticker/image to the specified pack but uses 🧐 as emoji.\
 \n\n\nPlease kang this. Made by @rupansh."
 })
