@@ -10,7 +10,7 @@ This module updates the userbot based on Upstream revision
 from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 
-from userbot import HELPER
+from userbot import CMD_HELP
 from userbot.events import register
 
 
@@ -34,7 +34,7 @@ async def is_off_br(br):
 async def upstream(ups):
     await ups.edit("`Checking for updates, please wait....`")
     conf = ups.pattern_match.group(1)
-    off_repo = 'https://github.com/baalajimaestro/Telegram-UserBot.git'
+    off_repo = 'https://github.com/RaphielGang/Telegram-UserBot.git'
 
     try:
         txt = "`Oops.. Updater cannot continue due to some problems occured`\n\n**LOGTRACE:**\n"
@@ -92,7 +92,7 @@ async def upstream(ups):
         await ups.client.disconnect()
 
 
-HELPER.update({
+CMD_HELP.update({
     'update': '.update\
 \nUsage: Checks if the main userbot repository has any updates and shows changelog if so.\
 \n\n.update now\

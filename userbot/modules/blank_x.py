@@ -8,7 +8,7 @@ RESTART_CMD='sudo systemctl restart botrun_userbot'
 from os import listdir
 from os.path import isfile, join
 import asyncio, os, time, random
-from userbot import bot, LOGGER, LOGGER_GROUP
+from userbot import bot, BOTLOG, BOTLOG_CHATID
 from telethon import events
 from telethon.tl.functions.messages import SendMessageRequest, ForwardMessagesRequest
 from telethon.tl.functions.channels import DeleteMessagesRequest
@@ -40,7 +40,7 @@ async def chatstalkset_blankx(e):
 async def chatstalk_blankx(e):
 	global cstalk, announcelive
 	if str(e.chat_id) == cstalk:
-		await bot(ForwardMessagesRequest(from_peer=e.chat_id, id=[e.id], to_peer=LOGGER_GROUP))
+		await bot(ForwardMessagesRequest(from_peer=e.chat_id, id=[e.id], to_peer=BOTLOG_CHATID))
 	op=announcelive
 	opp=[f for f in listdir(op) if isfile(join(op, f))]
 	if 'to-announce' in opp:
@@ -81,7 +81,7 @@ async def delall_blankx(e):
 	global delall, dt
 	if delall == True and dt == False:
 		await e.delete()
-		await bot.send_message(LOGGER_GROUP, 'You seem to have sent a message while delete all is True, please disable.')
+		await bot.send_message(BOTLOG_CHATID, 'You seem to have sent a message while delete all is True, please disable.')
 	if dt == True:
 		dt = False
 
@@ -191,7 +191,7 @@ async def edit_blankx(e):
 @bot.on(events.NewMessage(outgoing=True, pattern='^\.lchatid$'))
 async def lchatid_blankx(e):
 	await e.delete()
-	await bot.send_message(LOGGER_GROUP, 'Chat ID by .lchatid: ' + str(e.chat_id))
+	await bot.send_message(BOTLOG_CHATID, 'Chat ID by .lchatid: ' + str(e.chat_id))
 
 @bot.on(events.NewMessage(outgoing=True, pattern='^\.restart$'))
 async def restart_blankx(e):

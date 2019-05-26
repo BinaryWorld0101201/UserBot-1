@@ -54,10 +54,10 @@ API_HASH = os.environ.get("API_HASH", None)
 
 STRING_SESSION = os.environ.get("STRING_SESSION", None)
 
-LOGGER_GROUP = int(os.environ.get("LOGGER_GROUP", "0"))
+BOTLOG_CHATID = int(os.environ.get("BOTLOG_CHATID", "0"))
 
-LOGGER = sb(os.environ.get(
-    "LOGGER", "False"
+BOTLOG = sb(os.environ.get(
+    "BOTLOG", "False"
 ))  # Incase you want to turn off logging, put this to false
 
 PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "False"))
@@ -74,7 +74,9 @@ SCREENSHOT_LAYER_ACCESS_KEY = os.environ.get(
 
 OPEN_WEATHER_MAP_APPID = os.environ.get("OPEN_WEATHER_MAP_APPID", None)
 
-SUDO = os.environ.get("SUDO", None)
+WELCOME_MUTE = sb(os.environ.get(
+    "WELCOME_MUTE", "False"
+))
 
 YOUTUBE_API_KEY = os.environ.get(
     "YOUTUBE_API_KEY", None
@@ -114,7 +116,7 @@ ENABLE_KILLME = True
 SNIPE_ID = 0
 MUTING_USERS = {}
 MUTED_USERS = {}
-HELPER = {}
+CMD_HELP = {}
 AFKREASON = "no reason"
 SPAM_ALLOWANCE = 3
 SPAM_CHAT_ID = []

@@ -7,7 +7,7 @@
 import asyncio
 from asyncio import wait
 
-from userbot import LOGGER_GROUP, LOGGER, HELPER
+from userbot import BOTLOG_CHATID, BOTLOG, CMD_HELP
 from userbot.events import register
 
 @register(outgoing=True, pattern="^.tspam")
@@ -26,9 +26,9 @@ async def spammer(e):
         spam_message = str(e.text[8:])
         await asyncio.wait([e.respond(spam_message) for i in range(counter)])
         await e.delete()
-        if LOGGER:
+        if BOTLOG:
             await e.client.send_message(
-                LOGGER_GROUP,
+                BOTLOG_CHATID,
                 "#SPAM \n\n"
                 "Spam was executed successfully"
                 )
@@ -42,9 +42,9 @@ async def bigspam(e):
         for i in range(1, counter):
             await e.respond(spam_message)
         await e.delete()
-        if LOGGER:
+        if BOTLOG:
             await e.client.send_message(
-                LOGGER_GROUP,
+                BOTLOG_CHATID,
                 "#BIGSPAM \n\n"
                 "Bigspam was executed successfully"
                 )
@@ -60,9 +60,9 @@ async def tiny_pic_spam(e):
         for i in range(1, counter):
             await e.client.send_file(e.chat_id, link)
         await e.delete()
-        if LOGGER:
+        if BOTLOG:
             await e.client.send_message(
-                LOGGER_GROUP,
+                BOTLOG_CHATID,
                 "#PICSPAM \n\n"
                 "PicSpam was executed successfully"
                 )

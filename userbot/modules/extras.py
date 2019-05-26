@@ -1,6 +1,6 @@
 import asyncio, subprocess
 import time, re, io, os
-from userbot import bot, LOGGER, LOGGER_GROUP, HELPER
+from userbot import bot, BOTLOG, BOTLOG_CHATID, CMD_HELP
 from telethon import events, functions, types
 from telethon.events import StopPropagation
 from telethon.tl.functions.messages import ExportChatInviteRequest
@@ -95,9 +95,9 @@ async def disapprovepm(disapprvpm):
             f"[{name0}](tg://user?id={disapprvpm.chat_id}) `Disaproved to PM!`"
             )
 
-        if LOGGER:
+        if BOTLOG:
             await bot.send_message(
-                LOGGER_GROUP,
+                BOTLOG_CHATID,
                 f"[{name0}](tg://user?id={disapprvpm.chat_id})"
                 " was disapproved to PM you.",
             )
@@ -226,43 +226,43 @@ async def carbon_api(e):
    # Removing carbon.png after uploading
     await e.delete()
 
-HELPER.update({
+CMD_HELP.update({
       "carbon":".carbon <text> \n Beautify your code"
 })
-HELPER.update({
+CMD_HELP.update({
     'setlang': ".setlang <Lang> \
             \nUsage: It will set language for you carbon module "
 })
-HELPER.update({
+CMD_HELP.update({
     "leave": "Leave a Chat"
 })
-HELPER.update({
+CMD_HELP.update({
     ";__;": "You try it!"
 })
-HELPER.update({
+CMD_HELP.update({
     "cry": "Cry"
 })
-HELPER.update({
+CMD_HELP.update({
     "fp": "Send face palm emoji."
 })
-HELPER.update({
+CMD_HELP.update({
     "moon": "Bot will send a cool moon animation."
 })
-HELPER.update({
+CMD_HELP.update({
     "clock": "Bot will send a cool clock animation."
 })
-HELPER.update({
+CMD_HELP.update({
     "readme": "Reedme."
 })
-HELPER.update({
+CMD_HELP.update({
     "sauce": "source."
 })
-HELPER.update({
+CMD_HELP.update({
     "disapprove": "Disapprove anyone in PM."
 })
-HELPER.update({
+CMD_HELP.update({
     "myusernames": "List of Usernames owned by you."
 })
-HELPER.update({
+CMD_HELP.update({
     "oof": "Same as ;__; but ooof"
 })

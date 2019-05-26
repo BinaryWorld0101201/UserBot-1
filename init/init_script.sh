@@ -84,11 +84,11 @@ questions() {
 
     read -r -p "Do you need Logging Enabled? (y/n) " LOG
     if [ "$LOG" = "y" ]; then
-        read -r -p "Enter the Log Group ID: " LOGGER_GROUP
-        LOGGER=True
+        read -r -p "Enter the Log Group ID: " BOTLOG_CHATID
+        BOTLOG=True
     else
-        LOGGER=False
-        LOGGER_GROUP=0
+        BOTLOG=False
+        BOTLOG_CHATID=0
     fi
     read -r -p "What's your OpenWeatherMap API Key? " OPEN_WEATHER_MAP_APPID
 
@@ -121,8 +121,8 @@ writeconfig() {
 API_HASH=$API_HASH
 SCREENSHOT_LAYER_ACCESS_KEY=$SCREENSHOT_LAYER_ACCESS_KEY
 PM_AUTO_BAN=$PM_AUTO_BAN
-LOGGER=$LOGGER
-LOGGER_GROUP=$LOGGER_GROUP
+BOTLOG=$BOTLOG
+BOTLOG_CHATID=$BOTLOG_CHATID
 OPEN_WEATHER_MAP_APPID=$OPEN_WEATHER_MAP_APPID
 DATABASE_URL=$DB_URI" >> config.env
     sudo mv config.env ~/Telegram-UserBot

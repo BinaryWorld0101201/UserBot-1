@@ -33,12 +33,12 @@
       "description": "Get your own ACCESS_KEY from http://api.screenshotlayer.com/api/capture",
       "required": false
     },
-    "LOGGER": {
+    "BOTLOG": {
       "description": "Incase you want to turn off logging, put this to false",
       "value": "",
       "required": false
     },
-    "LOGGER_GROUP": {
+    "BOTLOG_CHATID": {
       "description": "ChatID for the Log group",
       "value": "",
       "required": false
